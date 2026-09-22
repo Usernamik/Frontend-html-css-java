@@ -34,5 +34,5 @@
 
 ## Деплой
 GitHubPages: https://usernamik.github.io/Frontend-html-css-java/
-GitHub: https://github.com/Usernamik/Frontend-html-css-java/edit/main/frontend-lab-2
+GitHub: https://github.com/Usernamik/Frontend-html-css-java/tree/main/frontend-lab-2
 
