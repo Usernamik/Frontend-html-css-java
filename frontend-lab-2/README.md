@@ -31,14 +31,7 @@
 - **Reuse / DRY** — `.container`, `.card`, `.btn` + модифікатори,
   `.card-tag`; `.pricing-card` містить лише унікальне для тарифів.
 
-## Показати на захисті (DevTools)
-
-1. Box Model картки — вкладка Computed.
-2. Переможець каскаду: `.pricing-card--featured` (0,2,0) над `.card` (0,1,0).
-3. Успадкований `font-family` на `<li>` — позначка «inherited from body».
-4. Змінити `--color-primary` у `:root` — миттєве перемальовування.
-5. Спільний клас `.btn`: база + модифікатори замість копій стилів.
 
 ## Деплой
 
-GitHub Pages (Deploy from branch) або Vercel (Framework Preset: Other).
+
