@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Наші тарифи — ЛР-2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <input type="checkbox" id="theme-toggle" class="theme-toggle-input" />
+      <div class="page">
+        <label for="theme-toggle" class="theme-toggle">
+          <span class="theme-toggle-label-light">Світла</span>
+          <span class="theme-toggle-switch" aria-hidden="true"></span>
+          <span class="theme-toggle-label-dark">Темна</span>
+        </label>
+
+        <section class="pricing" id="pricing">
+          <div class="container">
+            <h2 class="section-title">Наші тарифи</h2>
+            <p class="section-lead">
+              Оберіть план, який найкраще підходить для ваших завдань
+            </p>
+
+            <div class="pricing-grid">
+              <article class="card pricing-card">
+                <h3>Basic</h3>
+                <p class="pricing-price">$10<span> / month</span></p>
+                <ul class="pricing-features">
+                  <li>1 User</li>
+                  <li>5GB Storage</li>
+                  <li>Basic Support</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Select</a>
+              </article>
+
+              <article class="card pricing-card pricing-card--featured">
+                <span class="card-tag">Pro • Active</span>
+                <h3>Pro</h3>
+                <p class="pricing-price">$29<span> / month</span></p>
+                <ul class="pricing-features">
+                  <li>5 Users</li>
+                  <li>50GB Storage</li>
+                  <li>Priority Support</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Get Started</a>
+              </article>
+
+              <article class="card pricing-card">
+                <h3>Enterprise</h3>
+                <p class="pricing-price">$99<span> / month</span></p>
+                <ul class="pricing-features">
+                  <li>Unlimited</li>
+                  <li>1TB Storage</li>
+                  <li>24/7 Support</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Contact</a>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
