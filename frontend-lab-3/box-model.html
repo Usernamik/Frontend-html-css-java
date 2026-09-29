@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Експеримент 4.1: Box Model — content-box vs border-box</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        line-height: 1.5;
+        padding: 2rem;
+        color: #1f2937;
+        background-color: #f6f8fb;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p.hint {
+        margin-bottom: 2rem;
+        color: #64748b;
+      }
+
+      .test-content-box {
+        box-sizing: content-box;
+        width: 200px;
+        height: 100px;
+        padding: 20px;
+        border: 10px solid black;
+        background-color: lightblue;
+        margin: 20px;
+      }
+
+      .test-border-box {
+        box-sizing: border-box;
+        width: 200px;
+        height: 100px;
+        padding: 20px;
+        border: 10px solid black;
+        background-color: lightgreen;
+        margin: 20px;
+      }
+
+      .label {
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Box Model: content-box vs border-box</h1>
+    <p class="hint">
+      Обидва блоки: width: 200px; height: 100px; padding: 20px; border: 10px solid
+      black. Відкрийте DevTools → вкладка Computed → поколупайтеся в діаграмі Box Model
+      та порівняйте фактичні розміри.
+    </p>
+
+    <div class="label">1. box-sizing: content-box (blue)</div>
+    <div class="test-content-box">content-box</div>
+
+    <div class="label">2. box-sizing: border-box (green)</div>
+    <div class="test-border-box">border-box</div>
+  </body>
+</html>

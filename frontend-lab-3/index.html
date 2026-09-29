@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>Тарифи CloudDesk — плани Basic, Pro та Enterprise для команд</title>
+    <meta
+      name="description"
+      content="Порівняйте тарифні плани хмарної платформи CloudDesk: Basic для одного користувача, Pro для малих команд та Enterprise з підтримкою 24/7. Ціни від $10 на місяць."
+    />
+    <!-- TODO: замініть на власний URL GitHub Pages -->
+    <link
+      rel="canonical"
+      href="https://<username>.github.io/<repository>/lab-3/"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- header > nav: навігація сторінки. Логотип — не заголовок,
+         бо це не частина ієрархії h1–h3, а елемент брендингу -->
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a href="#top" class="site-logo">CloudDesk</a>
+        <nav aria-label="Основна навігація">
+          <ul class="site-nav">
+            <li><a href="#pricing" class="is-active">Тарифні плани</a></li>
+            <li><a href="#contacts">Контакти</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- section: самостійний тематичний розділ «тарифи» -->
+      <section class="pricing" id="pricing">
+        <div class="container">
+          <p class="section-kicker">Хмарна SaaS-платформа для бізнесу</p>
+          <h1 class="section-title">
+            CloudDesk — хмарне робоче середовище для команд
+          </h1>
+          <p class="section-lead">
+            Проєкти, файли та спілкування в одному робочому просторі. Оберіть
+            тариф за розміром команди та обсягом даних — від одного користувача
+            до необмеженої кількості людей.
+          </p>
+
+          <h2 class="section-subtitle">Тарифні плани</h2>
+
+          <div class="pricing-grid">
+            <!-- article: самодостатній блок «план» із заголовком, ціною та фічами -->
+            <article class="pricing-card">
+              <h3>Basic</h3>
+              <p class="pricing-price">$10<span> / міс</span></p>
+              <p class="pricing-note">
+                Для індивідуальної роботи: базові проєкти та файлове сховище
+              </p>
+              <ul class="pricing-features">
+                <li>
+                  <span class="checkmark" aria-hidden="true">✓</span>1
+                  користувач
+                </li>
+                <li>
+                  <span class="checkmark" aria-hidden="true">✓</span>5 ГБ
+                  сховища
+                </li>
+                <li>
+                  <span class="checkmark" aria-hidden="true">✓</span>Базова
+                  підтримка
+                </li>
+              </ul>
+              <!-- CTA — посилання, а не button: елемент веде до секції
+                   контактів, де оформлюють план; текст описує призначення переходу -->
+              <a href="#contacts" class="btn btn-outline"
+                >Оформити план Basic</a
+              >
+            </article>
+
+            <article class="pricing-card pricing-card--featured">
+              <span class="card-tag">Популярний вибір</span>
+              <h3>Pro</h3>
+              <p class="pricing-price">$29<span> / міс</span></p>
+              <p class="pricing-note">
+                Для малих команд: спільні проєкти та пріоритетна підтримка
+              </p>
+              <ul class="pricing-features">
+                <li>
+                  <span class="checkmark" aria-hidden="true">✓</span>5
+                  користувачів
+                </li>
+                <li>
+                  <span class="checkmark" aria-hidden="true">✓</span>50 ГБ
+                  сховища
+                </li>
+                <li>
+                  <span class="checkmark" aria-hidden="true">✓</span>Пріоритетна
+                  підтримка
+                </li>
+              </ul>
+              <a href="#contacts" class="btn btn-primary">Почати з плану Pro</a>
+            </article>
+
+            <article class="pricing-card">
+              <h3>Enterprise</h3>
+              <p class="pricing-price">$99<span> / міс</span></p>
+              <p class="pricing-note">
+                Для компаній: необмежені команди, розширена безпека
+              </p>
+              <ul class="pricing-features">
+                <li>
+                  <span class="checkmark" aria-hidden="true">✓</span>Необмежена
+                  кількість користувачів
+                </li>
+                <li>
+                  <span class="checkmark" aria-hidden="true">✓</span>1 ТБ
+                  сховища
+                </li>
+                <li>
+                  <span class="checkmark" aria-hidden="true">✓</span>Підтримка
+                  24/7
+                </li>
+              </ul>
+              <a href="#contacts" class="btn btn-outline"
+                >Звʼязатися з відділом продажів</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contacts">
+      <div class="container">
+        <p class="site-footer-title">Контакти CloudDesk</p>
+
+        <p class="site-footer-copy">
+          © 2026 CloudDesk. Усі тарифи вказані за місяць.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
