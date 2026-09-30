@@ -1,9 +1,11 @@
-name: Deploy frontend-lab-3 to GitHub Pages
+name: Deploy frontend-lab-7 to GitHub Pages
 
 on:
   push:
     branches:
       - main
+    paths:
+      - 'frontendlab-7-control/**'
   workflow_dispatch:
 
 permissions:
@@ -30,10 +32,10 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload frontend-lab-3
+      - name: Upload frontendlab-7-control
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './frontend-lab-3'
+          path: './frontendlab-7-control'
 
       - name: Deploy to GitHub Pages
         id: deployment
