@@ -16,7 +16,7 @@
   --space-5: 4rem;
 
   /* Типографіка: Inter — геометричний гротеск з макета */
-  --font-base: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-base: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-md: 1.125rem;
@@ -75,7 +75,10 @@ h3 {
   border: 2px solid transparent;
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s;
 }
 
 .btn-primary {
@@ -141,7 +144,9 @@ h3 {
   min-height: 100vh;
   background-color: var(--color-bg);
   color: var(--color-text);
-  transition: background-color 0.25s, color 0.25s;
+  transition:
+    background-color 0.25s,
+    color 0.25s;
 }
 
 /* Перевизначаються лише токени — компоненти темніють самі */
@@ -170,7 +175,10 @@ h3 {
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   box-shadow: var(--shadow);
-  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+  transition:
+    background-color 0.25s,
+    border-color 0.25s,
+    color 0.25s;
 }
 
 .theme-toggle-switch {
@@ -297,4 +305,24 @@ h3 {
   .pricing-card {
     flex-basis: 100%;
   }
+}
+/* ТЕСТОВІ БЛОКИ ДЛЯ BOX MODEL */
+.test-content-box {
+  box-sizing: content-box;
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+  border: 10px solid black;
+  background-color: lightblue;
+  margin: 20px;
+}
+
+.test-border-box {
+  box-sizing: border-box;
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+  border: 10px solid black;
+  background-color: lightgreen;
+  margin: 20px;
 }

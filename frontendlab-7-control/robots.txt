@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://usernamik.github.io/Frontend-html-css-java/frontendlab-7-control/sitemap.xml
