@@ -1,11 +1,9 @@
-name: Deploy frontend-lab-7 to GitHub Pages
+name: Deploy labs to GitHub Pages
 
 on:
   push:
     branches:
       - main
-    paths:
-      - 'frontendlab-7-control/**'
   workflow_dispatch:
 
 permissions:
@@ -32,10 +30,26 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload frontendlab-7-control
+      - name: Prepare site
+        run: |
+          mkdir -p _site
+          for dir in frontend-lab-*/; do
+            cp -r "$dir" "_site/$dir"
+          done
+          # проста головна сторінка зі списком усіх лаб
+          {
+            echo '<!DOCTYPE html><html lang="uk"><head><meta charset="UTF-8"><title>Лабораторні</title></head><body><h1>Лабораторні роботи</h1><ul>'
+            for dir in frontend-lab-*/; do
+              name="${dir%/}"
+              echo "<li><a href=\"$name/\">$name</a></li>"
+            done
+            echo '</ul></body></html>'
+          } > _site/index.html
+
+      - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './frontendlab-7-control'
+          path: './_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
