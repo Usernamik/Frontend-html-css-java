@@ -33,13 +33,12 @@ jobs:
       - name: Prepare site
         run: |
           mkdir -p _site
-          for dir in frontend-lab-*/; do
+          for dir in frontend*/; do
             cp -r "$dir" "_site/$dir"
           done
-          # проста головна сторінка зі списком усіх лаб
           {
             echo '<!DOCTYPE html><html lang="uk"><head><meta charset="UTF-8"><title>Лабораторні</title></head><body><h1>Лабораторні роботи</h1><ul>'
-            for dir in frontend-lab-*/; do
+            for dir in frontend*/; do
               name="${dir%/}"
               echo "<li><a href=\"$name/\">$name</a></li>"
             done
