@@ -37,7 +37,12 @@ jobs:
             cp -r "$dir" "_site/$dir"
           done
           {
-            echo '<!DOCTYPE html><html lang="uk"><head><meta charset="UTF-8"><title>Лабораторні</title></head><body><h1>Лабораторні роботи</h1><ul>'
+            echo '<!DOCTYPE html>'
+            echo '<html lang="uk"><head><meta charset="UTF-8">'
+            echo '<meta name="viewport" content="width=device-width, initial-scale=1">'
+            echo '<title>Лабораторні роботи</title>'
+            echo '<style>body{font-family:Arial,sans-serif;font-size:28px;line-height:1.6;max-width:700px;margin:40px auto;padding:0 20px;color:#111;background:#fff}h1{font-size:44px;margin-bottom:30px}ul{padding-left:30px}li{margin-bottom:14px}a{color:#0645ad}</style>'
+            echo '</head><body><h1>Лабораторні роботи</h1><ul>'
             for dir in frontend*/; do
               name="${dir%/}"
               echo "<li><a href=\"$name/\">$name</a></li>"
