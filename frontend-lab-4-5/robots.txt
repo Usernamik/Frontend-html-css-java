@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /css/
-Disallow: /img/
-Disallow: /admin/
+Allow: /
+
+Sitemap: https://usernamik.github.io/Frontend-html-css-java/frontend-lab-4-5/sitemap.xml

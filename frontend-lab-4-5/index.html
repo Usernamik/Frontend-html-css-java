@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FlowTask</title>
-  <meta name="robots" content="noindex">
+  <title>FlowTask — task board for teams that ship every week</title>
+  <meta name="description" content="FlowTask is a task board with boards, automations and weekly reports. Plan the week, run the sprint and ship on Friday — 14 days free, no credit card required.">
+  <link rel="canonical" href="https://usernamik.github.io/Frontend-html-css-java/frontend-lab-4-5/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FlowTask — task board for teams that ship every week">
+  <meta property="og:description" content="Boards, automations and reports in one place. 14 days free, no credit card required.">
+  <meta property="og:url" content="https://usernamik.github.io/Frontend-html-css-java/frontend-lab-4-5/">
+  <meta property="og:image" content="https://usernamik.github.io/Frontend-html-css-java/frontend-lab-4-5/img/hero-992.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -18,11 +25,8 @@
       "@type": "Brand",
       "name": "FlowTask"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "1284"
-    },
+    "url": "https://usernamik.github.io/Frontend-html-css-java/frontend-lab-4-5/",
+    "image": "https://usernamik.github.io/Frontend-html-css-java/frontend-lab-4-5/img/hero.jpg",
     "offers": {
       "@type": "Offer",
       "price": "19.00",
@@ -38,17 +42,17 @@
   <div class="site-header__inner">
     <img class="logo" src="img/logo.svg" alt="FlowTask" width="132" height="28">
 
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-      <div class="nav-item" data-target="features">Product</div>
-      <div class="nav-item" data-target="pricing">Pricing</div>
-      <div class="nav-item" data-target="faq">FAQ</div>
-      <div class="nav-item" data-target="trial">Trial</div>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav-item" href="#features">Product</a>
+      <a class="nav-item" href="#pricing">Pricing</a>
+      <a class="nav-item" href="#faq">FAQ</a>
+      <a class="nav-item" href="#trial">Trial</a>
     </nav>
 
     <div class="site-header__actions">
       <a class="link-quiet" href="about.html">About</a>
-      <a class="link-quiet" href="#" aria-label="Sign in">Sign in</a>
-      <button class="btn btn--primary" role="button" aria-label="Get started button" id="header-cta">Get started</button>
+      <a class="link-quiet" href="#">Sign in</a>
+      <button class="btn btn--primary" id="header-cta">Get started</button>
     </div>
   </div>
 </header>
@@ -61,23 +65,26 @@
         <h1>FlowTask</h1>
         <p class="hero__lead">Plan the week, run the sprint and ship on Friday — without three
           different tools arguing about who owns what.</p>
-        <div class="button button--primary button--lg" id="hero-cta">Get started</div>
+        <a class="button button--primary button--lg" href="#trial" id="hero-cta">Get started</a>
         <p class="hero__note muted">Free for 14 days. No credit card required.</p>
       </div>
-      <img class="hero__image" src="img/hero.jpg">
+      <picture>
+        <source type="image/webp" srcset="img/hero-992.webp">
+        <img class="hero__image" src="img/hero-992.jpg" alt="" width="992" height="620" fetchpriority="high" decoding="async">
+      </picture>
     </div>
   </section>
 
   <section class="section section--alt" id="features">
     <div class="shell">
       <div class="section__head">
-        <h4>Why FlowTask?</h4>
+        <h2>Why FlowTask?</h2>
         <p class="muted">Three things teams ask us for, built in rather than bolted on.</p>
       </div>
 
       <div class="grid-3">
         <div class="card">
-          <img class="card__icon" src="img/feature-1.svg" alt="icon" width="40" height="40">
+          <img class="card__icon" src="img/feature-1.svg" alt="" width="40" height="40">
           <h3>Boards that match your process</h3>
           <p class="soft">Columns, swimlanes and WIP limits you can change on a Monday morning
             without filing a ticket with anyone.</p>
@@ -197,7 +204,7 @@
         <div class="quote">
           <p>We moved eleven people over on a Tuesday and nobody asked for the old tool back.</p>
           <div class="quote__person">
-            <img class="quote__avatar" src="img/avatar-1.jpg" alt="" width="44" height="44">
+            <img class="quote__avatar" src="img/avatar-1.jpg" alt="" width="44" height="44" loading="lazy" decoding="async">
             <div>
               <div class="quote__name">Marta Kovalenko</div>
               <div class="quote__role">Head of Delivery, Northline</div>
@@ -209,7 +216,7 @@
           <p>The reports finally match what I see on the board, so our Friday review takes ten
             minutes instead of an hour.</p>
           <div class="quote__person">
-            <img class="quote__avatar" src="img/avatar-2.jpg" alt="" width="44" height="44">
+            <img class="quote__avatar" src="img/avatar-2.jpg" alt="" width="44" height="44" loading="lazy" decoding="async">
             <div>
               <div class="quote__name">Daniel Reyes</div>
               <div class="quote__role">Engineering Manager, Pilotgrid</div>
@@ -220,7 +227,7 @@
         <div class="quote">
           <p>Automations replaced the spreadsheet we had been quietly maintaining for two years.</p>
           <div class="quote__person">
-            <img class="quote__avatar" src="img/avatar-3.jpg" alt="" width="44" height="44">
+            <img class="quote__avatar" src="img/avatar-3.jpg" alt="" width="44" height="44" loading="lazy" decoding="async">
             <div>
               <div class="quote__name">Ines Farkas</div>
               <div class="quote__role">Ops Lead, Corvus Studio</div>
@@ -240,32 +247,32 @@
       <div class="faq">
 
       <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="true">Can I move my data out again?</button>
-        <div class="faq__a">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a-1">Can I move my data out again?</button>
+        <div class="faq__a" id="faq-a-1">
           <p>Yes. Every board exports to CSV and JSON, including comments and history, and the
             export runs on demand rather than on a schedule.</p>
         </div>
       </div>
 
       <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="true">Do you offer a student plan?</button>
-        <div class="faq__a">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a-2">Do you offer a student plan?</button>
+        <div class="faq__a" id="faq-a-2">
           <p>Students and non-profits get Pro at no cost for a year. Write to us from an
             institutional address and we will switch the workspace over.</p>
         </div>
       </div>
 
       <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="true">Where is my data stored?</button>
-        <div class="faq__a">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a-3">Where is my data stored?</button>
+        <div class="faq__a" id="faq-a-3">
           <p>In the EU by default. Enterprise workspaces can pin storage to a specific region and
             receive an audit log of every access.</p>
         </div>
       </div>
 
       <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="true">What happens after the trial?</button>
-        <div class="faq__a">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a-4">What happens after the trial?</button>
+        <div class="faq__a" id="faq-a-4">
           <p>The workspace becomes read-only for thirty days. Nothing is deleted until you ask us
             to delete it.</p>
         </div>
@@ -300,17 +307,17 @@
         <img src="img/logo.svg" alt="FlowTask" width="132" height="28">
         <p class="muted">Project management for teams that ship every week.</p>
         <div class="social">
-          <a href="#">
+          <a href="#" aria-label="X (Twitter)">
             <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
               <path d="M10.6 7.6 15.3 2h-1.5l-4 4.9L6.4 2H2l5 7.3L2 15.5h1.5l4.2-5.2 3.5 5.2H16l-5.4-7.9Z" fill="#374151"/>
             </svg>
           </a>
-          <a href="#">
+          <a href="#" aria-label="GitHub">
             <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
               <path d="M9 1.5a7.5 7.5 0 0 0-2.4 14.6c.4.1.5-.2.5-.4v-1.4c-2 .4-2.5-.5-2.7-1-.1-.3-.6-1-1-1.2-.3-.2-.8-.6 0-.6.7 0 1.2.7 1.4 1 .8 1.3 2 1 2.5.7.1-.6.3-1 .6-1.2-1.8-.2-3.7-.9-3.7-4 0-.9.3-1.6.8-2.2-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8a7.4 7.4 0 0 1 4 0c1.5-1 2.2-.8 2.2-.8.5 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.2 0 3.1-1.9 3.8-3.7 4 .3.3.6.8.6 1.6v2.3c0 .2.1.5.5.4A7.5 7.5 0 0 0 9 1.5Z" fill="#374151"/>
             </svg>
           </a>
-          <a href="#">
+          <a href="#" aria-label="LinkedIn">
             <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
               <path d="M3.4 6.4h2.8v9H3.4v-9Zm1.4-4.2a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2ZM8 6.4h2.7v1.2h.1c.4-.7 1.3-1.4 2.7-1.4 2.9 0 3.4 1.8 3.4 4.2v4.9h-2.8v-4.4c0-1 0-2.4-1.5-2.4s-1.7 1.1-1.7 2.3v4.5H8v-9Z" fill="#374151"/>
             </svg>

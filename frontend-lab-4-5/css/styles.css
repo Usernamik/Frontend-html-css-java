@@ -5,12 +5,13 @@
   src: url("../fonts/inter-latin.woff2") format("woff2");
   font-weight: 400 700;
   font-style: normal;
+  font-display: swap;
 }
 
 :root {
   --ink: #111827;
-  --ink-muted: #939ba7;
-  --ink-soft: #717985;
+  --ink-muted: #5b6472;
+  --ink-soft: #646c78;
   --brand: #4f46e5;
   --brand-dark: #4338ca;
   --brand-tint: #eef2ff;
@@ -28,6 +29,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
@@ -37,8 +42,9 @@ body {
   background: var(--surface);
 }
 
-:focus {
-  outline: none;
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
 }
 
 img {
@@ -140,6 +146,7 @@ a {
   font-size: 15px;
   font-weight: 500;
   color: #374151;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -489,8 +496,10 @@ a {
 
 .social a {
   display: inline-flex;
-  width: 18px;
-  height: 18px;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
 }
 
 .legal {

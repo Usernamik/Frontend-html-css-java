@@ -2,27 +2,11 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* Header navigation */
-
-  document.querySelectorAll('.nav-item').forEach(function (item) {
-    item.addEventListener('click', function () {
-      var section = document.getElementById(item.getAttribute('data-target'));
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
+  /* Header navigation is handled by anchor links (smooth scroll via CSS). */
 
   /* Sign-up flow */
 
   function startSignup() {
-    // Pre-compute the plan comparison so the trial section renders instantly.
-    var started = Date.now();
-    var total = 0;
-    while (Date.now() - started < 300) {
-      total += Math.sqrt(total + 1);
-    }
-
     var trial = document.getElementById('trial');
     if (trial) {
       trial.scrollIntoView({ behavior: 'smooth' });
@@ -34,11 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var headerCta = document.getElementById('header-cta');
   if (headerCta) {
     headerCta.addEventListener('click', startSignup);
-  }
-
-  var heroCta = document.getElementById('hero-cta');
-  if (heroCta) {
-    heroCta.addEventListener('click', startSignup);
   }
 
   /* Trial form */
@@ -62,7 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.querySelectorAll('.faq__q').forEach(function (question) {
     question.addEventListener('click', function () {
-      question.parentElement.classList.toggle('is-open');
+      var isOpen = question.parentElement.classList.toggle('is-open');
+      question.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   });
 
