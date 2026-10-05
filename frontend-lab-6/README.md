@@ -43,8 +43,6 @@ challenge-10/       Final Responsive Component
 # Node
 npx serve .
 
-# або Python
-python -m http.server 8000
 ```
 
 Далі — `http://localhost:8000/`.
