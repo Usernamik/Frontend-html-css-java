@@ -1,0 +1,82 @@
+/* Challenge 5. Container Query: reusable Card.
+   Challenge 6. Container Query units — продовження в цьому ж файлі.
+   @media для зміни layout САМОЇ картки не використовується. */
+
+body {
+  padding: 1.5rem;
+}
+
+/* Три контейнери різної ширини для тієї самої картки: sidebar, main, modal. */
+.content-layout {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.content-layout main {
+  min-inline-size: 0;
+}
+
+.modal {
+  margin-block-start: 1.5rem;
+  max-inline-size: 42rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+/* @container застосовується до НАЩАДКІВ контейнера, а не до нього самого.
+   Тому container-type задається обгортці .card-wrapper, а не .product-card.
+   Іменований container: `card`, щоб правило не залежало від найближчого. */
+.card-wrapper {
+  container: card / inline-size;
+}
+
+/* Типово (вузький контейнер) — картка вертикальна. */
+.product-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.product-card img {
+  inline-size: 100%;
+  border-radius: 6px;
+}
+
+.product-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: start;
+}
+
+/* Challenge 6. Розмір заголовка залежить від ширини КОНТЕЙНЕРА, а не
+   viewport: cqw = 1% inline-size контейнера. clamp не дає тексту стати
+   надто малим у sidebar і надто великим у широкому main. */
+.product-card__title {
+  margin-block-end: 0;
+  font-size: clamp(1.1rem, 4cqw, 1.75rem);
+}
+
+.product-card__price {
+  margin-block-end: 0;
+  font-weight: 700;
+}
+
+/* Широкий контейнер (> 500px): зображення і текстовий блок в один ряд. */
+@container card (width > 500px) {
+  .product-card {
+    grid-template-columns: minmax(120px, 220px) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+/* Це @media стосується layout сторінки (sidebar + main), а не картки,
+   тому умову challenge не порушує. */
+@media (width < 48rem) {
+  .content-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

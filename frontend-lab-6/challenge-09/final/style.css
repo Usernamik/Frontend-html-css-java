@@ -1,0 +1,82 @@
+/* Challenge 9 — Етап 3. Фінальний CSS після AI code review та власної
+   перевірки. Зміни щодо original/style.css пояснені в коментарях. */
+
+/* Один Grid замість flex-обгортки .layout: тепер .sidebar і .main —
+   його прямі елементи, а grid-template-areas дозволяє переставити main. */
+.dashboard {
+  min-block-size: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header  header"
+    "sidebar main";
+  grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--accent);
+  color: #fff;
+}
+
+.header-logo {
+  font-weight: 700;
+}
+
+/* Було: margin-left на кожному посиланні. Виправлення: gap на контейнері. */
+.header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  padding: 1.5rem;
+  background: var(--surface);
+}
+
+/* Було: .main { width: 900px } і повторні @media для 700px/100%. Виправлення:
+   жодної фіксованої ширини + min-inline-size: 0, щоб колонка могла стискатися. */
+.main {
+  grid-area: main;
+  min-inline-size: 0;
+  padding: 1.5rem;
+}
+
+/* Було: .cards { display:flex } і .card { width:300px } з трьома @media.
+   Виправлення: Grid з auto-fit/minmax — усі три breakpoint-и стали зайвими. */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+  margin-block-start: 1rem;
+}
+
+.card {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* Єдиний breakpoint: на вузькому екрані main стає першим. */
+@media (width < 48rem) {
+  .dashboard {
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar";
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

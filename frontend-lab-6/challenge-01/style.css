@@ -1,0 +1,44 @@
+/* Challenge 1. Flexbox: responsive header.
+   Header — один flex-контейнер: logo, navigation, action в одному рядку,
+   перенесення navigation на новий рядок без жодного @media. */
+
+.header {
+  display: flex;
+  flex-wrap: wrap;               /* дозволяємо перенесення рядків */
+  align-items: center;           /* вертикальне вирівнювання елементів */
+  gap: 0.75rem 1.25rem;          /* gap замість margin */
+  padding: 1rem 1.5rem;
+  border-block-end: 1px solid var(--line);
+  background: #fff;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* flex-basis: 20rem — доки для navigation є 20rem, вона стоїть у рядку.
+   Коли місця менше, flex-wrap на .header переносить її на новий рядок
+   без Media Query. flex-grow: 1 змушує navigation займати вільний простір,
+   тому кнопка завжди стоїть праворуч. */
+.navigation {
+  display: flex;
+  flex: 1 1 20rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.navigation a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.navigation a:hover {
+  color: var(--ink);
+}
+
+/* margin-inline-start: auto притискає кнопку до правого краю свого рядка. */
+.header-action {
+  margin-inline-start: auto;
+}

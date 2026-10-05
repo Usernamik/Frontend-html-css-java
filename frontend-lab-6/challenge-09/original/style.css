@@ -1,0 +1,97 @@
+/* Challenge 9 — Етап 1. Відповідь AI-агента, збережена БЕЗ ЗМІН.
+   Навмисно містить типові проблеми згенерованого responsive layout. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+.dashboard {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #2f65d6;
+  color: #fff;
+}
+
+.header-nav a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.layout {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  padding: 20px;
+  background: #eef1f6;
+}
+
+.main {
+  width: 900px;
+  padding: 20px;
+}
+
+.cards {
+  display: flex;
+}
+
+.card {
+  width: 300px;
+  margin: 10px;
+  padding: 16px;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+}
+
+@media (max-width: 1024px) {
+  .main {
+    width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    display: block;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .cards {
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 14px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}

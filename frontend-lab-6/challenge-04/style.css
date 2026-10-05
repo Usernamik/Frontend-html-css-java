@@ -1,0 +1,48 @@
+/* Challenge 4. Subgrid: aligned cards.
+   Спочатку — рішення без subgrid (залишено нижче для порівняння),
+   далі — активне рішення з subgrid. */
+
+body {
+  padding: 1.5rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  column-gap: 1.5rem;
+  /* row-gap керує внутрішніми рядками картки: subgrid успадковує саме
+     цей gap, тому він невеликий. */
+  row-gap: 0.75rem;
+  align-items: start;
+}
+
+/* --- Варіант 1: без subgrid (розкоментуйте, щоб порівняти) ---
+   Кожна картка — власний Grid зі своїми рядками. Заголовок, текст і кнопка
+   вирівнюються всередині своєї картки, але НЕ між картками: у сусідньої
+   картки заголовок займає два рядки, тому текст і кнопки «попливуть».
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.75rem;
+}
+*/
+
+/* --- Варіант 2: subgrid ---
+   Картка займає три рядки батьківського Grid і бере саме його треки.
+   Тепер h2 усіх карток стоять на одному рядку, текст — на другому,
+   кнопки — на третьому, незалежно від довжини заголовків. */
+.card {
+  display: grid;
+  grid-row: span 3;            /* три рядки батька — без цього subgrid немає що успадковувати */
+  grid-template-rows: subgrid; /* успадковуємо треки батьківського Grid */
+}
+
+.card h2,
+.card p {
+  margin-block: 0;
+}
+
+.card .button {
+  justify-self: start;         /* кнопка не розтягується на всю ширину */
+  align-self: end;
+}

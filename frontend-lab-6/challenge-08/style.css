@@ -1,0 +1,61 @@
+/* Challenge 8. Debug the Layout — ВИПРАВЛЕНО.
+   Кожна зміна має коментар із першопричиною. overflow-x: hidden не
+   використовується як спосіб приховати проблему. */
+
+/* Було: .page { width: 1200px; grid-template-columns: 300px 1fr; }
+   Причина overflow: фіксована ширина 1200px більша за вузький viewport,
+   а grid-колонка 1fr не могла стиснутися менше вмісту.
+   Виправлення: прибрали width, обидві колонки зробили гнучкими. */
+.page {
+  display: grid;
+  grid-template-columns: minmax(180px, 300px) minmax(0, 1fr);
+  min-block-size: 100vh;
+}
+
+.sidebar {
+  padding: 1rem;
+  background: var(--surface);
+}
+
+/* Було: .main { width: 1000px; }
+   Причина: фіксована ширина + grid-елемент має min-width: auto, тому не
+   стискався і виштовхував sidebar за межі екрана.
+   Виправлення: прибрали width, додали min-inline-size: 0. */
+.main {
+  padding: 1rem;
+  min-inline-size: 0;
+}
+
+.hero h1 {
+  /* Було: font-size: 64px; white-space: nowrap;
+     Причина: nowrap забороняв перенос довгого заголовка → обрізання/overflow.
+     Виправлення: прибрали nowrap, розмір зробили fluid. */
+  font-size: clamp(1.75rem, 1rem + 4vw, 3rem);
+}
+
+/* Було: .cards { display: flex; gap: 24px; } + .card { width: 350px; }
+   Причина: три картки по 350px не мали flex-wrap і не стискались →
+   горизонтальний overflow у контейнері.
+   Виправлення: Grid з auto-fit/minmax сам перерозподіляє картки. */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-block-start: 1.5rem;
+}
+
+.card {
+  min-inline-size: 0;
+}
+
+/* Один breakpoint: на вузькому екрані sidebar переходить під main.
+   order переставляє елементи без зміни розмітки. */
+@media (width < 48rem) {
+  .page {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    order: 1;
+  }
+}

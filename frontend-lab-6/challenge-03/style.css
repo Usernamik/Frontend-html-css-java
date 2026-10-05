@@ -1,0 +1,87 @@
+/* Challenge 3. Responsive page layout: Grid + Flexbox. */
+
+/* Grid тримає сторінку: header / sidebar+main / footer.
+   grid-template-areas дозволяє переставити регіони на вузькому екрані. */
+.page {
+  min-block-size: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header  header"
+    "sidebar main"
+    "footer  footer";
+  grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+}
+
+/* Header, navigation і група кнопок — на Flexbox. */
+.site-header {
+  grid-area: header;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  padding: 1rem 1.5rem;
+  border-block-end: 1px solid var(--line);
+  background: #fff;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.navigation {
+  display: flex;
+  flex: 1 1 16rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.navigation a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.navigation a:hover {
+  color: var(--ink);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-inline-start: auto;   /* кнопки праворуч */
+}
+
+.sidebar {
+  grid-area: sidebar;
+  padding: 1.5rem;
+  background: var(--surface);
+}
+
+.main {
+  grid-area: main;
+  padding: 1.5rem;
+  min-inline-size: 0;          /* дозволяємо Grid-елементу стискатися */
+}
+
+.site-footer {
+  grid-area: footer;
+  padding: 1rem 1.5rem;
+  border-block-start: 1px solid var(--line);
+}
+
+/* Один breakpoint: main — те, за чим прийшов відвідувач, тому на вузькому
+   екрані він іде раніше за sidebar. Переставити області без Media Query
+   не можна, бо порядок у grid-template-areas фіксований. */
+@media (width < 48rem) {
+  .page {
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Challenge 9 — AI-generated Layout Review</title>
+  <link rel="stylesheet" href="../base.css">
+  <style>
+    body { padding: 1.5rem; max-inline-size: 60rem; margin-inline: auto; }
+    .task { background: #fff; border: 1px solid var(--line); border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Challenge 9. AI-generated Layout Review</h1>
+  <p><a href="../index.html">← Усі challenges</a> ·
+    <a href="../tasks.html#challenge-09">Умова</a></p>
+
+  <section class="task">
+    <p><strong>Порівняння:</strong>
+      <a href="original/index.html">original/ (відповідь AI без змін)</a> ·
+      <a href="final/index.html">final/ (після review)</a></p>
+
+    <table>
+      <tr><th>AI-рекомендація</th><th>Прийнята?</th><th>Перевірка</th><th>Обґрунтування</th></tr>
+      <tr>
+        <td>Прибрати фіксовані <code>.main{width:900px}</code> і <code>.card{width:300px}</code></td>
+        <td>Так</td>
+        <td>MDN: width</td>
+        <td>Фіксована ширина більша за viewport дає horizontal overflow; заміна на Grid <code>minmax(0,1fr)</code> і <code>auto-fit</code> усуває причину.</td>
+      </tr>
+      <tr>
+        <td>За<code>media</code> 3 штуки → один breakpoint</td>
+        <td>Так</td>
+        <td>web.dev: auto-fit</td>
+        <td><code>repeat(auto-fit, minmax(min(100%,16rem),1fr))</code> сам перелічує колонки, тож breakpoint-и для 1024/768 (cards) зайві.</td>
+      </tr>
+      <tr>
+        <td>Додати <code>min-inline-size: 0</code> grid-елементу</td>
+        <td>Так</td>
+        <td>MDN: min-width / Grid</td>
+        <td>Grid/flex-елемент має <code>min-width:auto</code> і не стискається менше вмісту — це справжня першопричина overflow сайдбара/карток.</td>
+      </tr>
+      <tr>
+        <td>Замінити <code>margin-left</code> навігації на <code>gap</code></td>
+        <td>Так</td>
+        <td>MDN: gap</td>
+        <td>Gap єдиний для всіх елементів і не дублюється; margin лишає зайвий відступ у крайнього елемента.</td>
+      </tr>
+      <tr>
+        <td>Використати Container Query для картки</td>
+        <td>Ні</td>
+        <td>web.dev: container queries</td>
+        <td>Тут достатньо Grid <code>auto-fit</code>: картки однакові й не змінюють внутрішній layout. CQ додав би складність без потреби (див. Challenge 5, де картка справді різна).</td>
+      </tr>
+    </table>
+  </section>
+</body>
+</html>

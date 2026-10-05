@@ -1,0 +1,21 @@
+/* Challenge 2. Grid: adaptive card layout. */
+
+body {
+  padding: 1.5rem;
+}
+
+.features {
+  display: grid;
+  /* auto-fit: стільки колонок по minmax(220px, 1fr), скільки влізе.
+     Жодного breakpoint для 2/3/4 колонок. auto-fit згортає порожні треки
+     і розтягує наявні картки, тому вони завжди заповнюють рядок. */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Експеримент (auto-fit vs auto-fill).
+   repeat(auto-fill, minmax(220px, 1fr)) створює стільки ж треків, скільки
+   auto-fit, але НЕ згортає порожні. Якщо карток менше, ніж уміщається
+   колонок, auto-fit розтягує наявні картки на весь рядок, а auto-fill
+   лишає порожні треки праворуч — картки залишаються вузькими.
+   Перевірка: розширте viewport або тимчасово приберіть кілька карток. */

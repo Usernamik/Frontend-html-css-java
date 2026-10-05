@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ЛР №6 — умови challenges</title>
+  <link rel="stylesheet" href="base.css">
+  <style>
+    body { padding: 1.5rem; max-inline-size: 52rem; margin-inline: auto; }
+    .task { background: #fff; border: 1px solid var(--line); border-radius: 8px; }
+    .task h2 { margin-block-start: 0; }
+  </style>
+</head>
+<body>
+  <h1>ЛР №6 — умови challenges</h1>
+  <p><a href="index.html">← До списку challenges</a></p>
+
+  <section class="task" id="challenge-01">
+    <h2>Challenge 1. Flexbox: responsive header</h2>
+    <ol>
+      <li>Розташуйте logo, navigation та button в одному рядку.</li>
+      <li>Забезпечте вертикальне вирівнювання.</li>
+      <li>Задайте відстань між елементами через <code>gap</code>.</li>
+      <li>Дозвольте navigation переноситися на новий рядок.</li>
+      <li>Не використовуйте <code>position: absolute</code> для побудови layout.</li>
+      <li>Перевірте поведінку при вузькому viewport.</li>
+    </ol>
+    <p><strong>Додатково:</strong> при недостатній ширині navigation автоматично
+      переходить на наступний рядок — без Media Query.</p>
+    <p><strong>Очікуваний результат:</strong> header залишається працездатним при
+      різній ширині viewport.</p>
+    <p><a href="challenge-01/index.html">Перейти до challenge →</a></p>
+  </section>
+
+  <section class="task" id="challenge-02">
+    <h2>Challenge 2. Grid: adaptive card layout</h2>
+    <ul>
+      <li>картки мають мінімальну ширину 220px;</li>
+      <li>кількість колонок залежить від доступного простору;</li>
+      <li>між картками однаковий <code>gap</code>;</li>
+      <li>немає горизонтального overflow;</li>
+      <li>без окремих Media Queries для 2, 3 та 4 колонок.</li>
+    </ul>
+    <p><strong>Використати:</strong> <code>repeat()</code>, <code>minmax()</code>, <code>auto-fit</code>.</p>
+    <p><strong>Експеримент:</strong> порівняйте <code>repeat(auto-fit, minmax(220px, 1fr))</code>
+      і <code>repeat(auto-fill, minmax(220px, 1fr))</code> та поясніть різницю за
+      результатом. Різницю видно, коли в рядок поміщається більше колонок, ніж є
+      карток: розширте viewport або тимчасово приберіть кілька карток.</p>
+    <p><a href="challenge-02/index.html">Перейти до challenge →</a></p>
+  </section>
+
+  <section class="task" id="challenge-03">
+    <h2>Challenge 3. Responsive page layout: Grid + Flexbox</h2>
+    <p>Побудуйте повний layout сторінки: на desktop — ліворуч, на вузькому viewport — праворуч.</p>
+    <pre>
+  +-------------------------------+      +-----------------+
+  |            Header             |      |     Header      |
+  +---------+---------------------+      +-----------------+
+  | Sidebar |        Main         |      |      Main       |
+  +---------+---------------------+      +-----------------+
+  |            Footer             |      |     Sidebar     |
+  +-------------------------------+      +-----------------+
+                                         |     Footer      |
+                                         +-----------------+
+    </pre>
+    <ul>
+      <li><strong>Grid</strong> — для загального page layout та sidebar + main.</li>
+      <li><strong>Flexbox</strong> — для header, navigation і групи кнопок <code>.actions</code>.</li>
+      <li>Breakpoint визначте самостійно або, якщо це можливо, реалізуйте зміну
+        layout без Media Query.</li>
+    </ul>
+    <p><strong>Не використовувати:</strong> <code>float</code>; таблиці для layout;
+      абсолютне позиціонування як основний layout-механізм; фіксовану ширину всієї
+      сторінки.</p>
+    <p><a href="challenge-03/index.html">Перейти до challenge →</a></p>
+  </section>
+
+  <section class="task" id="challenge-04">
+    <h2>Challenge 4. Subgrid: aligned cards</h2>
+    <p>Картки мають різну довжину заголовків і тексту. Вирівняйте заголовки,
+      основний текст і кнопки Read more на однакових рівнях — без фіксованих висот.</p>
+    <ol>
+      <li>Спочатку реалізуйте рішення <strong>без subgrid</strong> (кожна картка — власний
+        Grid або Flexbox) і зафіксуйте, що вирівнюється, а що ні. Збережіть цей
+        варіант, щоб порівняти його з subgrid-рішенням далі.</li>
+      <li>Замініть реалізацію на <strong>subgrid</strong> (див. експеримент у §4.5 лабораторної).</li>
+      <li>Поясніть: яку проблему вирішує subgrid, яку складніше вирішити звичайним
+        nested Grid?</li>
+    </ol>
+    <p><a href="challenge-04/index.html">Перейти до challenge →</a></p>
+  </section>
+
+  <section class="task" id="challenge-05">
+    <h2>Challenge 5–6. Container Query: reusable Card</h2>
+    <p>Та сама <code>.product-card</code> стоїть у трьох місцях: у <code>.sidebar</code>,
+      у <code>main</code> і в modal-like контейнері <code>.modal</code>.</p>
+    <p><strong>Challenge 5</strong></p>
+    <ol>
+      <li>Побудуйте layout <code>.content-layout</code> (sidebar + main) і обмежте ширину
+        <code>.modal</code>, щоб отримати три контейнери різної ширини.</li>
+      <li>У вузькому контейнері картка — вертикальна, у широкому — зображення й
+        текстовий блок в один ряд.</li>
+      <li>Не використовуйте <code>@media</code> для зміни layout картки: задайте
+        <code>container-type</code> обгортці <code>.card-wrapper</code> і використайте
+        <code>@container</code>.</li>
+      <li>Перевірте, що кожна картка адаптується незалежно від viewport: змінюйте в
+        DevTools ширину контейнера, а не вікна.</li>
+    </ol>
+    <p><strong>Додатково:</strong> реалізуйте іменований container —
+      <code>container: card / inline-size;</code>.</p>
+    <p><strong>Challenge 6</strong> — продовжуйте в цьому ж <code>style.css</code></p>
+    <ol>
+      <li>Зробіть розмір заголовка <code>.product-card__title</code> залежним від ширини
+        контейнера.</li>
+      <li>Дослідіть <code>cqw</code>, <code>cqi</code>, <code>cqmin</code>, <code>cqmax</code>
+        і порівняйте їх із <code>vw</code>.</li>
+      <li>Порівняйте ту саму картку у wide і narrow container, не змінюючи viewport.
+        Поясніть, чому <code>vw</code> і <code>cqw</code> дають різну поведінку.</li>
+    </ol>
+    <p><a href="challenge-05/index.html">Перейти до challenge →</a></p>
+  </section>
+
+  <section class="task" id="challenge-07">
+    <h2>Challenge 7. Fluid Typography</h2>
+    <p><code>style.css</code> містить breakpoint-based typography: окремий
+      <code>font-size</code> для кожного breakpoint. Замініть його на fluid typography
+      через <code>clamp()</code>; конкретні значення підберіть самостійно.</p>
+    <ul>
+      <li>текст не стає надто малим і не стає надто великим;</li>
+      <li>розмір змінюється плавно, без окремого breakpoint для кожного розміру тексту.</li>
+    </ul>
+    <p><strong>DevTools experiment:</strong> змінюйте ширину viewport, виберіть
+      <code>h1</code>, відкрийте Computed і зафіксуйте фактичний <code>font-size</code>
+      щонайменше для трьох значень ширини.</p>
+    <p><a href="challenge-07/index.html">Перейти до challenge →</a></p>
+  </section>
+
+  <section class="task" id="challenge-08">
+    <h2>Challenge 8. Debug the Layout</h2>
+    <p><code>style.css</code> містить навмисно закладені помилки. На вузькому viewport
+      сторінка має horizontal scroll, обрізаний hero heading, картки виходять за межі
+      контейнера, sidebar займає непропорційно багато місця.</p>
+    <ol>
+      <li>Відкрийте DevTools і визначте елемент, який створює overflow.</li>
+      <li>Перевірте його Box Model, computed <code>width</code>, <code>min-width</code>,
+        <code>max-width</code> та Grid/Flexbox overlay.</li>
+      <li>Знайдіть CSS rule, яка створює проблему, і визначте першопричину.</li>
+      <li>Внесіть мінімальну зміну та повторно перевірте layout.</li>
+    </ol>
+    <p>Для кожної проблеми зафіксуйте:</p>
+    <table>
+      <tr><th>Проблема</th><th>Причина</th><th>CSS-властивість</th><th>Виправлення</th></tr>
+      <tr><td>Horizontal overflow</td><td>…</td><td>…</td><td>…</td></tr>
+      <tr><td>Heading overflow</td><td>…</td><td>…</td><td>…</td></tr>
+      <tr><td>Card overflow</td><td>…</td><td>…</td><td>…</td></tr>
+    </table>
+    <p><strong>Важливо:</strong> <code>overflow-x: hidden</code> — не виправлення.
+      Поясніть, чому виник overflow, а не приховуйте його.</p>
+    <p><a href="challenge-08/index.html">Перейти до challenge →</a></p>
+  </section>
+
+  <section class="task" id="challenge-09">
+    <h2>Challenge 9. AI-generated Layout Review</h2>
+    <p>AI-агент тут виступає у двох ролях: спочатку <strong>генерує</strong>
+      рішення, потім <strong>перевіряє</strong> його як reviewer. Між цими етапами
+      ви перевіряєте код самостійно.</p>
+    <p><strong>Етап 1. Генерація.</strong> Отримайте від AI-агента CSS-рішення для
+      такого завдання:</p>
+    <blockquote lang="en">Create a responsive dashboard with a header, sidebar, main content
+      area and a grid of cards. It should work on desktop, tablet and mobile.</blockquote>
+    <p>Покладіть відповідь AI без змін у <code>challenge-09/original/</code>, а
+      виправлену версію — у <code>challenge-09/final/</code>, щоб наприкінці
+      порівняти початковий і фінальний CSS.</p>
+    <p><strong>Етап 2. Власна перевірка.</strong> Перевірте рішення у DevTools і
+      самостійно знайдіть щонайменше 3 потенційні проблеми або зайві рішення.
+      Зверніть увагу на надмірну кількість Media Queries, фіксовані ширини,
+      <code>min-width</code>, overflow, дублювання CSS, неправильне використання
+      Flexbox/Grid, можливість використати <code>minmax()</code>/<code>auto-fit</code>
+      та Container Query.</p>
+    <p><strong>Етап 3. AI code review.</strong></p>
+    <ol>
+      <li>Передайте згенерований код AI-агенту з prompt-ом для code review (§7
+        лабораторної).</li>
+      <li>Перевірте кожну рекомендацію AI за MDN/web.dev і порівняйте з власною
+        перевіркою: що знайшов AI, а що — ви.</li>
+      <li>Виправте обґрунтовані проблеми.</li>
+      <li>Порівняйте початковий і фінальний CSS.</li>
+    </ol>
+    <p><a href="challenge-09/index.html">Перейти до challenge →</a></p>
+  </section>
+
+  <section class="task" id="challenge-10">
+    <h2>Challenge 10. Final Responsive Component</h2>
+    <p>Об'єднайте отримані навички в одному компоненті — Responsive Feature Section:
+      на desktop картки стоять у ряд, на mobile — одна під одною.</p>
+    <p><strong>Обов'язково використати:</strong></p>
+    <ul>
+      <li>CSS Grid;</li>
+      <li>Flexbox щонайменше для одного внутрішнього компонента;</li>
+      <li><code>minmax()</code> або <code>auto-fit</code>;</li>
+      <li><code>clamp()</code>;</li>
+      <li>Container Query щонайменше для одного компонента;</li>
+      <li>DevTools для перевірки responsive behavior.</li>
+    </ul>
+    <p><strong>Необов'язково:</strong> subgrid; container query units; named containers.</p>
+    <p><strong>Вимоги (§6):</strong> без горизонтального overflow, без фіксованої
+      ширини основного контейнера, без зайвих breakpoint-ів, без
+      <code>overflow-x: hidden</code> для приховування проблем і без абсолютного
+      позиціонування як основного механізму layout.</p>
+    <p><a href="challenge-10/index.html">Перейти до challenge →</a></p>
+  </section>
+</body>
+</html>
