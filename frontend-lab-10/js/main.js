@@ -52,12 +52,14 @@ form.addEventListener('submit', () => {
 
 /* Booking */
 
+// Один делегований обробник: картки перемальовуються після кожного пошуку,
+// а обробник прив'язаний до вузла, тому прив'язка до самих карток їх губила.
 function bindBookButtons() {
-  document.querySelectorAll('.venue-card__book').forEach((button) => {
-    button.addEventListener('click', () => {
-      const venue = venues.find((item) => item.id === button.dataset.id);
-      openBooking(venue, form.date.value || toISODate(new Date()));
-    });
+  results.addEventListener('click', (event) => {
+    const button = event.target.closest('.venue-card__book');
+    if (!button) return;
+    const venue = venues.find((item) => item.id === button.dataset.id);
+    openBooking(venue, form.date.value || toISODate(new Date()));
   });
 }
 
