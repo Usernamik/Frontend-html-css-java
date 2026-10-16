@@ -12,6 +12,9 @@ const status = document.getElementById('status');
 // Venues currently on screen
 let venues = [];
 
+// Номер останнього запущеного пошуку (щоб відповідь застарілого запиту не перемагала)
+let searchId = 0;
+
 /* Mobile menu */
 
 const menuToggle = document.querySelector('.menu-toggle');
@@ -33,10 +36,13 @@ function readFilters() {
 
 async function handleSearch(event) {
   event.preventDefault();
+  const requestId = ++searchId;
   status.textContent = 'Шукаємо…';
   results.setAttribute('aria-busy', 'true');
 
   const found = await fetchVenues(readFilters());
+  // Новий пошук уже попереду — ця відповідь застаріла і не має потрапляти на екран.
+  if (requestId !== searchId) return;
   renderResults(results, found);
   venues = found;
   results.setAttribute('aria-busy', 'false');
